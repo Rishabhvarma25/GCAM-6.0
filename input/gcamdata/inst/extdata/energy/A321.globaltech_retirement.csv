@@ -13,13 +13,15 @@ supplysector,subsector,technology,year,lifetime,shutdown.rate,half.life,steepnes
 cement,cement,cement,final-calibration-year,40,,20,0.3,-0.5,6
 cement,cement,cement CCS,final-calibration-year,40,,20,0.3,-0.5,6
 process heat cement,biomass,biomass,final-calibration-year,40,,20,0.3,-0.5,6
-process heat cement,coal,coal,final-calibration-year,40,,20,0.3,-0.5,6
+process heat cement,process heat cement HE,coal,final-calibration-year,40,,20,0.3,-0.5,6
+process heat cement,process heat cement LE,coal,final-calibration-year,40,,20,0.3,-0.5,6
 process heat cement,gas,gas,final-calibration-year,40,,20,0.3,-0.5,6
 process heat cement,refined liquids,refined liquids,final-calibration-year,40,,20,0.3,-0.5,6
 cement,cement,cement,initial-future-year,40,,20,0.3,-0.5,6
 cement,cement,cement CCS,initial-future-year,40,,20,0.3,-0.5,6
 process heat cement,biomass,biomass,initial-future-year,40,,20,0.3,-0.5,6
-process heat cement,coal,coal,initial-future-year,40,,20,0.3,-0.5,6
+process heat cement,process heat cement HE,coal,initial-future-year,40,,20,0.3,-0.5,6
+process heat cement,process heat cement LE,coal,initial-future-year,40,,20,0.3,-0.5,6
 process heat cement,gas,gas,initial-future-year,40,,20,0.3,-0.5,6
 process heat cement,refined liquids,refined liquids,initial-future-year,40,,20,0.3,-0.5,6
 process heat cement,hydrogen,hydrogen,initial-future-year,40,,20,0.3,-0.5,6

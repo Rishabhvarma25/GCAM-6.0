@@ -6,9 +6,12 @@
 supplysector,subsector,apply.to,from.year,to.year,to.value,interpolation.function
 cement,cement,share-weight,final-calibration-year,end-year,,fixed
 process heat cement,biomass,share-weight,final-calibration-year,end-year,,fixed
-process heat cement,coal,share-weight,final-calibration-year,end-year,,fixed
+process heat cement,process heat cement LE,share-weight,final-calibration-year,end-year,,fixed
 process heat cement,gas,share-weight,final-calibration-year,end-year,,fixed
 process heat cement,refined liquids,share-weight,final-calibration-year,end-year,,fixed
 process heat cement,hydrogen,share-weight,start-year,2020,,fixed
 process heat cement,hydrogen,share-weight,2020,2050,,linear
 process heat cement,hydrogen,share-weight,2050,end-year,,fixed
+process heat cement,process heat cement HE,share-weight,final-calibration-year,2020,,fixed
+process heat cement,process heat cement HE,share-weight,2020,2050,,linear
+process heat cement,process heat cement HE,share-weight,2050,end-year,,fixed

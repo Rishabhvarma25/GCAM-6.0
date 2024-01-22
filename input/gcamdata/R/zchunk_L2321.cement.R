@@ -296,17 +296,24 @@ module_energy_L2321.cement <- function(command, ...) {
       distinct ->
       calibrated_techs_export # temporary tibble
 
+    L2321.GlobalTechShrwt_cement_filtered <- L2321.GlobalTechShrwt_cement %>% filter(technology == "coal")
     L1321.in_EJ_R_cement_F_Y %>%
       filter(year %in% MODEL_BASE_YEARS) %>%
       mutate(calibrated.value = round(value, energy.DIGITS_CALOUTPUT)) %>%
-      left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
-      left_join_error_no_match(calibrated_techs_export, by = c("sector", "fuel")) %>%
+      #left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
+      #left_join_error_no_match(calibrated_techs_export, by = c("sector", "fuel")) %>%
+      left_join(GCAM_region_names, by = "GCAM_region_ID") %>%
+      left_join(calibrated_techs_export, by = c("sector", "fuel")) %>%
+      left_join(L2321.GlobalTechShrwt_cement_filtered, by = c("subsector" = "subsector.name", "technology", "year")) %>%
       # This table should only be the technologies for producing heat - drop the electricity inputs to the cement production technology
       filter(!(supplysector %in% L2321.StubTechCoef_cement[["supplysector"]])) %>%
       mutate(stub.technology = technology,
              share.weight.year = year,
-             subs.share.weight = if_else(calibrated.value > 0, 1, 0),
-             tech.share.weight = subs.share.weight) %>%
+             subs.share.weight = if_else(!is.na(share.weight) & calibrated.value > 0, share.weight,
+                                         if_else(calibrated.value == 0, 0, 1)),
+             tech.share.weight = subs.share.weight,
+             calibrated.value = calibrated.value * subs.share.weight) %>%
+      select(-c("share.weight", "sector.name")) %>%
       select(LEVEL2_DATA_NAMES[["StubTechCalInput"]]) ->
       L2321.StubTechCalInput_cement_heat
 
